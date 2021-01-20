@@ -18,6 +18,14 @@ async def root():
     return {"welcome": "http://127.0.0.1:5000/docs"}
 
 
+@app.get("/test/{id}")
+async def get_test_by_id_(id: int):
+    test = TestModel.filter(id=id).first()
+    results = await TestSchema.from_queryset_single(test)
+
+    return results
+
+
 @app.get("/test", response_model=list[TestSchema])
 async def get_all_tests():
     all_moods = TestModel.all()
