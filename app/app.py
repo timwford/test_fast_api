@@ -50,4 +50,4 @@ async def make_new_test(new_test: TestSchemaCreate):
 
 
 if __name__ == "__main__":
-    uvicorn.run("app:app", host="127.0.0.1", port=5000, log_level="info")
+    uvicorn.run("app:app", host="127.0.0.1", port=8080, log_level="info")
